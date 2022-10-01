@@ -13,7 +13,7 @@ const LogoutButton: FunctionComponent<IProps> = ({isAuthenticated, logout}) => {
 
         <div>
           {isAuthenticated ? (
-            <button className='logout-button' onClick={() => logout()}>
+            <button data-testid ='logout-button' className='logout-button' onClick={() => logout()}>
                 Logout
             </button>
           ) : (

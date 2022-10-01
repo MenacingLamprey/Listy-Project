@@ -1,17 +1,18 @@
 import React from "react";
 import { screen, render, within } from "@testing-library/react";
-import { Main } from '.'
+import  LogoutButton from '.'
 
 describe('log out button' ,() => {
   test('display content in options when loaded and authenticated', () => {
-    render(<Main />)
+    render(<LogoutButton  isAuthenticated ={true} logout ={()=>console.log('auth')}/>)
     screen.getByText(/Logout/);
+
   })
 
   test('doesnt display log out options when not authenticated', () => {
-    render(<Main />)
-    const main = screen.queryByTestId('logout-button')
-    expect(main).toBeNull
+    render(<LogoutButton  isAuthenticated ={false} logout ={()=>console.log('auth')}/>)
+    const logoutButton = screen.queryByTestId('logout-button')
+    expect(logoutButton).toBeNull
   })
 
 })

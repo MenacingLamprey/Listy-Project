@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-import blackListyLogo from '../assets/listyLogoBlack.svg'
+//import blackListyLogo from '../assets/listyLogoBlack.svg'
 // import { useAuth0 } from '@auth0/auth0-react'
 import LogoutButton from '../LogoutButton/index';
 
@@ -15,8 +15,9 @@ export const LogoNavbar: FunctionComponent<IProps> = ({isAuthenticated, logout})
   return (
     <div>
       { isAuthenticated ? (
-        <div>
-          <img className='black-listy-nav-logo' src={blackListyLogo} />
+        <div data-testid = 'content'>
+          <img className='black-listy-nav-logo' src={''} />
+          {/* <img className='black-listy-nav-logo' src={blackListyLogo} /> */}
           <LogoutButton isAuthenticated={isAuthenticated} logout={logout} />
         </div>
       ) : (

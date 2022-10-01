@@ -1,4 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react'
+import { FunctionComponent } from 'enzyme';
 import Profile from '../Profile';
 import { LoginPage } from '../LoginPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -8,8 +9,16 @@ import { MainFeed } from '../MainFeed';
 import { SearchPage } from '../SearchPage';
 
 
-export const Main = () => {
-  const { isLoading, isAuthenticated, logout, loginWithRedirect, getAccessTokenSilently, getAccessTokenWithPopup, user } = useAuth0();
+interface IProps {
+  isLoading :boolean;
+  isAuthenticated :boolean;
+  logout: Function;
+  loginWithRedirect :Function
+}
+
+export const Main:FunctionComponent<IProps> = ({ isLoading, isAuthenticated, logout, loginWithRedirect }) => {
+
+  const {getAccessTokenSilently, getAccessTokenWithPopup, user} = useAuth0()
 
   return (
     <BrowserRouter>

@@ -1,18 +1,12 @@
-import { useState, useEffect, FormEvent, FunctionComponent } from 'react'
-import './Add.css';
-// import { useAuth0 } from '@auth0/auth0-react'
+import { useState, useEffect, FormEvent } from 'react'
+// import './Add.css';
 import { IPost } from '../componentTypes';
 import { createPost, fetchMainfeedPosts, deletePost, likePost } from '../../ApiServices';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const FileBase64 = require('react-file-base64')
 
-interface IProps {
-  getAccessTokenSilently: Function,
-  getAccessTokenWithPopup: Function,
- }
-
-export const Add: FunctionComponent<IProps>  = ({getAccessTokenSilently, getAccessTokenWithPopup}) => {
+export const Add = () => {
 
   const { user } = useAuth0();
 

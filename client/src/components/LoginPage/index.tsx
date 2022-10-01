@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react'
 import LoginButton from '../LoginButon'
 import SignUpButton from '../SignUpButton';
 
-import blackListyLogo from '../assets/listyLogoBlack.svg'
+//import blackListyLogo from '../assets/listyLogoBlack.svg'
 
 interface IProps {
   isLoading: boolean,
@@ -20,8 +20,9 @@ export const LoginPage: FunctionComponent<IProps> = ({isLoading, isAuthenticated
   return (
     <div>
       { !isAuthenticated ? (
-        <div className='login-page'>
-          <img className='black-listy-logo' src={blackListyLogo} />
+        <div data-testid ='logged-in'  className='login-page'>
+          {/* <img className='black-listy-logo' src={blackListyLogo} /> */}
+          <img className='black-listy-logo' src={''} />
           <LoginButton isAuthenticated={isAuthenticated} loginWithRedirect={loginWithRedirect}/>
           <SignUpButton isAuthenticated={isAuthenticated} loginWithRedirect={loginWithRedirect}/>
         </div>
